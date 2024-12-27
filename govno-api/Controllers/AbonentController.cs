@@ -19,14 +19,15 @@ namespace govno_api.Controllers
             // Build the query
             var query = _context.Records
                 .Where(record =>
-                    EF.Functions.Like(record.Field1, likePattern) ||
-                    EF.Functions.Like(record.Field2, likePattern) ||
-                    EF.Functions.Like(record.Field3, likePattern) ||
-                    EF.Functions.Like(record.Field4, likePattern) ||
-                    EF.Functions.Like(record.Field5, likePattern));
+                    EF.Functions.Like(record.LastName, likePattern) ||
+                    EF.Functions.Like(record.FirstName, likePattern) ||
+                    EF.Functions.Like(record.Email, likePattern) ||
+                    EF.Functions.Like(record.PhoneNumber, likePattern) ||
+                    EF.Functions.Like(record.Address, likePattern));
 
             // Execute and return results
             return await query.ToListAsync();
         }
+
     }
 }
